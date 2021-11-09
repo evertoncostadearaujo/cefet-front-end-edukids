@@ -1,19 +1,22 @@
 #controles ul {
-  list-style-type: none;
-  padding: 0;
-  transform: translateX(-80%);
+    list-style-type: none;
+    padding: 0;
+    transform: translateX(-80%);
 }
 
 #controles ul:hover {
-  transform: translateX(0);
+    transform: translateX(0);
 }
+
 
 /* Exercício 1: Criar uma transição para quando o mouse estiver em cima dos
  * botões play/stop (para que o elemento se revele lentamente)
  */
- #controles ul {
 
- }
+#controles ul {
+    transition: transform 500ms linear;
+}
+
 
 /*
  * Exercício 2: Você deve implementar uma metáfora visual para cada um dos 4
@@ -23,18 +26,73 @@
  *   - com-raiva: animal fica pulsando
  *   - atacando: animal dá um salto e cresce, com uma borda vermelha
  */
-.com-fome {
 
+.com-fome {
+    background-color: #ffff0080;
+    animation: com-fome 1s ease-in-out 0s infinite alternate;
+}
+
+@keyframes com-fome {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.5;
+    }
 }
 
 .satisfeito {
+    background-color: #00800080;
+    animation: satisfeito 1s ease-in-out 0s infinite alternate;
+}
 
+@keyframes satisfeito {
+    0% {
+        transform: rotateZ(0);
+    }
+    50% {
+        transform: rotateZ(-45deg);
+    }
+    100% {
+        transform: rotateZ(45deg);
+    }
 }
 
 .com-raiva {
+    background-color: #ff000080;
+    animation: com-raiva 1s ease-in-out 0s infinite alternate;
+}
 
+@keyframes com-raiva {
+    10%,
+    90% {
+        transform: translate3d(-2px, 0, 0);
+    }
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
 }
 
 .atacando {
+    background-color: #00800080;
+    animation: atacando 1s ease-in-out 0s infinite alternate;
+}
 
+@keyframes atacando {
+    from {
+        transform: scale(1.0, 1.0);
+    }
+    to {
+        transform: scale(1.25, 1.25);
+    }
 }
